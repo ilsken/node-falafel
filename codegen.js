@@ -20,7 +20,6 @@ function CodeGenerator(options){
 	TransformStream.call(this, options);
 	this._readableState.objectMode = false;
   this._writableState.objectMode = true;
-	this.mappings = []
 }
 
 CodeGenerator.prototype = Object.create(TransformStream.prototype);
@@ -64,10 +63,9 @@ CodeGenerator.prototype._transform = function(chunk, replace, callback){
 };
 
 CodeGenerator.prototype._flush = function (callback) {
-	var mappings = this.mappings
-		, debug = this.debug
-		, sourceName = this.sourceName
-		, rootNode =  new SourceNode(1, 0, sourceName, this.lines.map(function(line){
+	var debug = this.debug
+	  , sourceName = this.sourceName
+	  , rootNode =  new SourceNode(1, 0, sourceName, this.lines.map(function(line){
 			if(line) {
 				return line.concat(['\n'])
 			}
