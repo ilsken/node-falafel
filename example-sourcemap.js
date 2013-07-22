@@ -7,7 +7,8 @@ var src = (function foo(){
 
 var output = falafel(src, {
 	debug: true,
-	sourceName: 'foo.js'
+	sourceName: 'foo.js',
+	generatedName: 'foo.generated.js'
 }, function(node){
 	if(node.type == 'Identifier' && node.name == 'bar'){
 		node.update('bazzle')

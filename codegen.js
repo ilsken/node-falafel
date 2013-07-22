@@ -84,8 +84,8 @@ CodeGenerator.prototype._flush = function (callback) {
 	this.push(result.code);
 	if(debug) {
 		this.push(['\n//@ sourceMappingURL=data:application/json;base64,',
-							 base64(result.map.toString())
-							 ].join(''))
+		           base64(result.map.toString())
+		          ].join(''))
 	}
 
 	callback()
