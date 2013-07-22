@@ -46,9 +46,9 @@ CodeGenerator.prototype._transform = function(chunk, replace, callback){
 	var lines = this.lines.slice(start.line-1, end.line)
 	lines.forEach(function(line, i){
 		if(!line) return;
-		var x = i === 0 ? start.column : 0
-		var y = i == lines.length-1 ? end.column : line.length - 1;
 		var firstLine = i === 0;
+		var x = firstLine ? start.column : 0
+		var y = i == lines.length-1 ? end.column : line.length;
 
 		for(var col = x; col < y; col++){
 			if (firstLine && col === x) {
