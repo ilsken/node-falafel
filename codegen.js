@@ -66,10 +66,7 @@ CodeGenerator.prototype._flush = function (callback) {
 	var debug = this.debug
 	  , sourceName = this.sourceName
 	  , rootNode =  new SourceNode(1, 0, sourceName, this.lines.map(function(line){
-			if(line) {
-				return line.concat(['\n'])
-			}
-			else return '\n';
+			return [line, '\n']
 		}));
 
 	if(debug) {
