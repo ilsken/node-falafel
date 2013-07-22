@@ -34,7 +34,7 @@ CodeGenerator.prototype.getSourceFor = function(node){
 	//console.log('lines are ', lines)
 
 	eachLine(lines, start, end, appendTo(chunks))
-	return chunks.join('')
+	return chunks.slice(0, -1).join('')
 }
 
 CodeGenerator.prototype._transform = function(chunk, replace, callback){
